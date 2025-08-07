@@ -22,7 +22,7 @@
             display: inline-block;
             width: 10px;
             height: 1.2rem;
-            background-color: #34d399;
+            background-color: #60a5fa; /* Blue cursor */
             margin-left: 8px;
             animation: blink 1s infinite;
         }
@@ -37,14 +37,15 @@
             transition: all 0.3s ease;
         }
         .glass-card:hover {
-            border: 1px solid rgba(52, 211, 153, 0.5);
+            border: 1px solid rgba(96, 165, 250, 0.5); /* Blue hover border */
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px -15px rgba(52, 211, 153, 0.2);
+            box-shadow: 0 10px 30px -15px rgba(96, 165, 250, 0.2); /* Blue shadow */
         }
         .tag {
-            background-color: #34d399;
-            color: #0a0a0a;
+            background-color: rgba(96, 165, 250, 0.1); /* Blue tag bg */
+            color: #60a5fa; /* Blue tag text */
             font-weight: 500;
+            border: 1px solid rgba(96, 165, 250, 0.2);
         }
         .section {
             opacity: 0;
@@ -63,202 +64,205 @@
             background: #171717;
         }
         ::-webkit-scrollbar-thumb {
-            background: #34d399;
+            background: #60a5fa; /* Blue scrollbar thumb */
             border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #6ee7b7;
+            background: #93c5fd; /* Lighter blue on hover */
+        }
+        /* Nav active class */
+        .nav-link.active {
+            color: #60a5fa; /* Blue active link */
+            font-weight: 600;
+        }
+        .skill-logo-container {
+            background-color: #171717;
+            border: 1px solid #27272a;
+            transition: all 0.3s ease;
+        }
+        .skill-logo-container:hover {
+            transform: translateY(-4px);
+            background-color: #27272a;
+            border-color: #60a5fa; /* Blue border on hover */
+        }
+        .skill-logo-container svg {
+             transition: transform 0.3s ease;
+        }
+        .skill-logo-container:hover svg {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header & Hero Section -->
-    <header class="min-h-screen flex flex-col justify-center items-center text-center p-4">
-        <div class="max-w-4xl mx-auto">
-            <h1 id="name-text" class="text-4xl md:text-6xl font-bold text-white mb-2 font-mono"></h1>
-            <p id="title-text" class="text-lg md:text-2xl text-emerald-400 font-mono mb-8"></p>
-            <p class="max-w-2xl mx-auto text-slate-300 mb-8">
-                Innovative and results-driven Data Scientist with expertise in AI, Machine Learning, and Deep Learning. Proven track record of developing impactful AI solutions.
-            </p>
-            <div class="flex justify-center items-center space-x-6 text-slate-400">
-                <a href="mailto:varunraskar22@gmail.com" class="hover:text-emerald-400 transition-colors" title="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/varun-raskar/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-                <a href="https://github.com/varunraskar" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                </a>
-                <a href="https://www.kaggle.com/varunraskar" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="Kaggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.82 13.44l-2.96 3.03-2.88-3.03-4.98 5.11 7.86 7.45 7.82-7.45-4.86-5.11zM10.88.1L6.1 4.98l4.78 4.86 4.94-4.86L10.88.1z"/></svg>
-                </a>
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="sticky top-0 z-50 px-4 md:px-8 py-3 bg-black/50 backdrop-blur-lg border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold font-mono text-white hover:text-blue-400 transition-colors">VR</a>
+            <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                <a href="#experience" class="nav-link text-slate-300 hover:text-blue-400 transition-colors text-sm">Experience</a>
+                <a href="#projects" class="nav-link text-slate-300 hover:text-blue-400 transition-colors text-sm">Projects</a>
+                <a href="#education" class="nav-link text-slate-300 hover:text-blue-400 transition-colors text-sm">Education</a>
+                <a href="#skills" class="nav-link text-slate-300 hover:text-blue-400 transition-colors text-sm">Skills</a>
+                <a href="#achievements" class="nav-link text-slate-300 hover:text-blue-400 transition-colors text-sm">Achievements</a>
+                <a href="#responsibility" class="nav-link text-slate-300 hover:text-blue-400 transition-colors text-sm">Responsibility</a>
+            </div>
+            <a href="mailto:varunraskar22@gmail.com" class="hidden md:inline-block bg-blue-500/10 text-blue-400 border border-blue-400/50 px-4 py-2 rounded-lg hover:bg-blue-500/20 transition-colors text-sm font-medium">Contact Me</a>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-slate-300 hover:text-blue-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
         </div>
-        <div class="absolute bottom-10 animate-bounce">
-            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-4">
+            <a href="#experience" class="nav-link block text-slate-300 hover:text-blue-400 transition-colors">Experience</a>
+            <a href="#projects" class="nav-link block text-slate-300 hover:text-blue-400 transition-colors">Projects</a>
+            <a href="#education" class="nav-link block text-slate-300 hover:text-blue-400 transition-colors">Education</a>
+            <a href="#skills" class="nav-link block text-slate-300 hover:text-blue-400 transition-colors">Skills</a>
+            <a href="#achievements" class="nav-link block text-slate-300 hover:text-blue-400 transition-colors">Achievements</a>
+            <a href="#responsibility" class="nav-link block text-slate-300 hover:text-blue-400 transition-colors">Responsibility</a>
+            <a href="mailto:varunraskar22@gmail.com" class="block bg-blue-500/10 text-blue-400 border border-blue-400/50 px-4 py-2 rounded-lg hover:bg-blue-500/20 transition-colors text-sm font-medium text-center">Contact Me</a>
         </div>
+    </nav>
+
+    <!-- Header & Hero Section -->
+    <header class="relative min-h-screen flex flex-col justify-center items-center text-center p-4 overflow-hidden -mt-16">
+        <div class="absolute inset-0 z-0 opacity-20"><canvas id="plexus-bg"></canvas></div>
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 id="name-text" class="text-4xl md:text-6xl font-bold text-white mb-2 font-mono"></h1>
+            <p id="title-text" class="text-lg md:text-2xl text-blue-400 font-mono mb-8"></p>
+            <p class="max-w-2xl mx-auto text-slate-300 mb-8">Innovative and results-driven Data Scientist with expertise in AI, Machine Learning, and Deep Learning. Proven track record of developing impactful AI solutions.</p>
+            <div class="flex justify-center items-center space-x-6 text-slate-400">
+                <a href="mailto:varunraskar22@gmail.com" class="hover:text-blue-400 transition-colors" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+                <a href="https://www.linkedin.com/in/varun-raskar-061778201/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                <a href="https://github.com/SHOCKWAVE07" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                <a href="https://www.kaggle.com/varunraskar" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.82 13.44l-2.96 3.03-2.88-3.03-4.98 5.11 7.86 7.45 7.82-7.45-4.86-5.11zM10.88.1L6.1 4.98l4.78 4.86 4.94-4.86L10.88.1z"/></svg></a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 animate-bounce z-10"><a href="#experience" aria-label="Scroll down"><svg class="w-6 h-6 text-blue-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></a></div>
     </header>
 
     <main class="px-4 md:px-8 py-16 md:py-24">
         <div class="max-w-4xl mx-auto space-y-24">
 
             <!-- Experience Section -->
-            <section id="experience" class="section">
-                <h2 class="text-2xl font-bold text-emerald-400 mb-8">./Experience</h2>
+            <section id="experience" class="section pt-20 -mt-20">
+                <h2 class="text-2xl font-bold text-blue-400 mb-8">./Experience</h2>
                 <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
-                    <!-- Amazon -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 group-odd:order-1 group-odd:ml-auto group-even:mr-auto shrink-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                        </div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-lg">
-                            <div class="flex items-baseline justify-between">
-                                <h3 class="font-bold text-white">Amazon ML Summer School</h3>
-                                <p class="text-sm text-slate-400">Sept - Oct 2023</p>
-                            </div>
+                    <div class="relative flex items-center md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] ml-4 md:ml-0 glass-card p-6 rounded-lg md:group-odd:ml-auto md:group-even:mr-auto">
+                            <div class="flex items-baseline justify-between"><h3 class="font-bold text-white">Amazon ML Summer School</h3><p class="text-sm text-slate-400">Sept - Oct 2023</p></div>
                             <p class="text-sm font-medium text-slate-300 mb-2">Mentee</p>
-                            <ul class="list-disc list-inside text-slate-400 space-y-1 text-sm">
-                                <li>Selected as one of 3000 participants from over 20,000 applicants.</li>
-                                <li>Gained expertise in Deep Neural Networks, Reinforcement Learning, and Transformers.</li>
-                                <li>Applied advanced ML concepts to practical projects.</li>
-                            </ul>
+                            <ul class="list-disc list-inside text-slate-400 space-y-1 text-sm"><li>Selected from over 20,000 applicants.</li><li>Gained expertise in DNNs, RL, and Transformers.</li><li>Applied advanced ML concepts to practical projects.</li></ul>
                         </div>
                     </div>
-                    <!-- Celebal Technologies -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 group-odd:order-1 group-odd:ml-auto group-even:mr-auto shrink-0">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                        </div>
-                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-lg">
-                            <div class="flex items-baseline justify-between">
-                                <h3 class="font-bold text-white">Celebal Technologies</h3>
-                                <p class="text-sm text-slate-400">May - July 2023</p>
-                            </div>
+                    <div class="relative flex items-center md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] ml-4 md:ml-0 glass-card p-6 rounded-lg md:group-odd:ml-auto md:group-even:mr-auto">
+                            <div class="flex items-baseline justify-between"><h3 class="font-bold text-white">Celebal Technologies</h3><p class="text-sm text-slate-400">May - July 2023</p></div>
                             <p class="text-sm font-medium text-slate-300 mb-2">Data Science Intern</p>
-                            <ul class="list-disc list-inside text-slate-400 space-y-1 text-sm">
-                                <li>Developed a ML system for Air Pressure Failure Detection.</li>
-                                <li>Addressed imbalanced data with SMOTE and optimized with feature engineering.</li>
-                                <li>Awarded a Pre-Placement Offer (PPO) for outstanding performance.</li>
-                            </ul>
+                            <ul class="list-disc list-inside text-slate-400 space-y-1 text-sm"><li>Developed an ML system for Air Pressure Failure Detection.</li><li>Used SMOTE for imbalanced data and feature engineering.</li><li>Awarded a Pre-Placement Offer (PPO).</li></ul>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Projects Section -->
-            <section id="projects" class="section">
-                <h2 class="text-2xl font-bold text-emerald-400 mb-8">./Projects</h2>
+            <section id="projects" class="section pt-20 -mt-20">
+                <h2 class="text-2xl font-bold text-blue-400 mb-8">./Projects</h2>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Project 1 -->
-                    <div class="glass-card p-6 rounded-lg flex flex-col">
-                        <h3 class="font-bold text-white text-lg mb-2">Hierarchical LEGO Classification with EfficientNet</h3>
-                        <p class="text-slate-400 text-sm mb-4 flex-grow">Developed a novel framework for hierarchical classification of LEGO parts using deep learning and a structured taxonomy, achieving high accuracy (96.1%) and path similarity (~0.97).</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag text-xs px-2 py-1 rounded-full">EfficientNet</span>
-                            <span class="tag text-xs px-2 py-1 rounded-full">Graph-based DAG</span>
-                            <span class="tag text-xs px-2 py-1 rounded-full">Hierarchical Attention</span>
-                        </div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="glass-card p-6 rounded-lg flex flex-col">
-                        <h3 class="font-bold text-white text-lg mb-2">Conditional SketchRNN: Class-Conditioned Stroke Generation</h3>
-                        <p class="text-slate-400 text-sm mb-4 flex-grow">Enhanced SketchRNN with class conditioning to generate structured sketches for 10 QuickDraw classes, using an attention-based LSTM and a custom weighted loss.</p>
-                         <div class="flex flex-wrap gap-2">
-                            <span class="tag text-xs px-2 py-1 rounded-full">SketchRNN</span>
-                            <span class="tag text-xs px-2 py-1 rounded-full">LSTM</span>
-                            <span class="tag text-xs px-2 py-1 rounded-full">Attention Mechanism</span>
-                        </div>
-                    </div>
-                    <!-- Project 3 -->
-                    <div class="glass-card p-6 rounded-lg flex flex-col">
-                        <h3 class="font-bold text-white text-lg mb-2">LangChain Multi-Tool Agent for Information Retrieval</h3>
-                        <p class="text-slate-400 text-sm mb-4 flex-grow">Developed an intelligent LangChain AI agent that selects and uses tools like Wikipedia and Arxiv for complex information retrieval, leveraging Google Gemini and FAISS.</p>
-                         <div class="flex flex-wrap gap-2">
-                            <span class="tag text-xs px-2 py-1 rounded-full">LangChain</span>
-                            <span class="tag text-xs px-2 py-1 rounded-full">Google Gemini</span>
-                            <span class="tag text-xs px-2 py-1 rounded-full">FAISS</span>
-                        </div>
-                    </div>
+                    <div class="glass-card p-6 rounded-lg flex flex-col"><h3 class="font-bold text-white text-lg mb-2">Hierarchical LEGO Classification</h3><p class="text-slate-400 text-sm mb-4 flex-grow">A novel framework for hierarchical classification of LEGO parts using deep learning, achieving high accuracy (96.1%) and path similarity (~0.97).</p><div class="flex flex-wrap gap-2"><span class="tag text-xs px-2 py-1 rounded-full">EfficientNet</span><span class="tag text-xs px-2 py-1 rounded-full">DAG</span><span class="tag text-xs px-2 py-1 rounded-full">Hierarchical Attention</span></div></div>
+                    <div class="glass-card p-6 rounded-lg flex flex-col"><h3 class="font-bold text-white text-lg mb-2">Conditional SketchRNN</h3><p class="text-slate-400 text-sm mb-4 flex-grow">Enhanced SketchRNN with class conditioning to generate structured sketches for 10 QuickDraw classes, using an attention-based LSTM.</p><div class="flex flex-wrap gap-2"><span class="tag text-xs px-2 py-1 rounded-full">SketchRNN</span><span class="tag text-xs px-2 py-1 rounded-full">LSTM</span><span class="tag text-xs px-2 py-1 rounded-full">Attention</span></div></div>
+                    <div class="glass-card p-6 rounded-lg flex flex-col col-span-1 md:col-span-2"><h3 class="font-bold text-white text-lg mb-2">LangChain Multi-Tool Agent</h3><p class="text-slate-400 text-sm mb-4 flex-grow">Developed an intelligent LangChain AI agent that selects and uses tools like Wikipedia and Arxiv for complex information retrieval, leveraging Google Gemini and FAISS for semantic search.</p><div class="flex flex-wrap gap-2"><span class="tag text-xs px-2 py-1 rounded-full">LangChain</span><span class="tag text-xs px-2 py-1 rounded-full">Google Gemini</span><span class="tag text-xs px-2 py-1 rounded-full">FAISS</span><span class="tag text-xs px-2 py-1 rounded-full">Vector Search</span></div></div>
                 </div>
             </section>
 
             <!-- Education Section -->
-            <section id="education" class="section">
-                <h2 class="text-2xl font-bold text-emerald-400 mb-8">./Education</h2>
+            <section id="education" class="section pt-20 -mt-20">
+                <h2 class="text-2xl font-bold text-blue-400 mb-8">./Education</h2>
                 <div class="space-y-6">
-                     <div class="glass-card p-6 rounded-lg">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-bold text-white">Indian Institute of Technology Jodhpur</h3>
-                                <p class="text-slate-300">Master of Technology in Artificial Intelligence</p>
-                                <p class="text-sm text-slate-400">CGPA: 8.30</p>
-                            </div>
-                            <p class="text-sm text-slate-400 text-right shrink-0 ml-4">July 2024 - May 2026</p>
+                     <div class="glass-card p-6 rounded-lg"><div class="flex justify-between items-start"><div><h3 class="font-bold text-white">Indian Institute of Technology Jodhpur</h3><p class="text-slate-300">M.Tech in Artificial Intelligence</p><p class="text-sm text-slate-400">CGPA: 8.30</p></div><p class="text-sm text-slate-400 text-right shrink-0 ml-4">2024 - 2026</p></div></div>
+                     <div class="glass-card p-6 rounded-lg"><div class="flex justify-between items-start"><div><h3 class="font-bold text-white">Manipal University Jaipur</h3><p class="text-slate-300">B.Tech in Data Science & Engineering</p><p class="text-sm text-slate-400">CGPA: 8.83</p></div><p class="text-sm text-slate-400 text-right shrink-0 ml-4">2020 - 2024</p></div></div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section pt-20 -mt-20">
+                <h2 class="text-2xl font-bold text-blue-400 mb-8">./Skills</h2>
+                <div class="space-y-10">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-4">Languages</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#60a5fa" d="M208.2 87.8a48.2 48.2 0 1 0-80.4 0a48.2 48.2 0 1 0 -80.4 0a48.2 48.2 0 1 0 80.4 0a48.2 48.2 0 1 0 80.4 0Z"/><path fill="#e2e8f0" d="M127.8 168.2a48.2 48.2 0 1 0 0-80.4a48.2 48.2 0 1 0 0 80.4Z"/></svg><span class="text-sm text-slate-300">Python</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#60a5fa" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/><path fill="#0a0a0a" d="M201.2 124.7c-2.3-34.4-31.2-61.7-66.7-61.7-37.3 0-67.7 30.3-67.7 67.7c0 23.4 12 44.2 30.2 56.5-3.2 5.1-6.2 10.4-8.9 16-6.4 13.2-10.2 28.2-10.2 43.8 0 52.3 42.5 94.8 94.8 94.8 32.4 0 61.1-16.3 78.8-40.9 2.5 2.8 5.2 5.4 8.2 7.8 15.3 12.3 34.2 19.6 54.6 19.6 4.2 0 8.3-.3 12.4-.9c-2.3-34.4-31.2-61.7-66.7-61.7-37.3 0-67.7 30.3-67.7 67.7 0 23.4 12 44.2 30.2 56.5-3.2 5.1-6.2 10.4-8.9 16-6.4 13.2-10.2 28.2-10.2 43.8-.1 52.3 42.4 94.8 94.7 94.8 32.4 0 61.1-16.3 78.8-40.9 2.5 2.8 5.2 5.4 8.2 7.8 15.3 12.3 34.2 19.6 54.6 19.6 4.2 0 8.3-.3 12.4-.9 14.6-29.2 15.2-63.5 1.7-93.8-13-29.2-38.8-49.8-68.8-55.8 22.8-13.8 38.2-38.2 40.2-66.2 1.9-27.4-5.6-54.8-21.3-76.3-13.8-18.9-33.3-32.2-55.5-38.3C248.3 118.8 224.1 119 201.2 124.7z"/></svg><span class="text-sm text-slate-300">R</span></div>
                         </div>
                     </div>
-                     <div class="glass-card p-6 rounded-lg">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-bold text-white">Manipal University Jaipur</h3>
-                                <p class="text-slate-300">Bachelor of Technology in Data Science and Engineering</p>
-                                <p class="text-sm text-slate-400">CGPA: 8.83</p>
-                            </div>
-                            <p class="text-sm text-slate-400 text-right shrink-0 ml-4">Nov 2020 - May 2024</p>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-4">Frameworks</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path d="M64.1 1.4A62.6 62.6 0 001.5 64a62.6 62.6 0 0062.6 62.6 62.6 62.6 0 0062.6-62.6A62.7 62.7 0 0064 1.4zM64 8.5a55.5 55.5 0 0155.5 55.5A55.5 55.5 0 0164 119.5a55.5 55.5 0 01-55.5-55.5A55.5 55.5 0 0164 8.5zm-29 55.5a29.2 29.2 0 0113.2-24.2l-3.5-3.5a35.8 35.8 0 00-9.7 27.7 35.8 35.8 0 009.7 27.7l3.5-3.5A29.2 29.2 0 0135 64zm58 0a29.2 29.2 0 01-13.2 24.2l3.5 3.5a35.8 35.8 0 009.7-27.7 35.8 35.8 0 00-9.7-27.7l-3.5 3.5A29.2 29.2 0 0193 64z" fill="#60a5fa"/><path d="M64 35a29.2 29.2 0 00-24.2 13.2l-3.5-3.5A35.8 35.8 0 0164 35a35.8 35.8 0 0127.7 9.7l-3.5 3.5A29.2 29.2 0 0064 35zm0 58a29.2 29.2 0 0024.2-13.2l3.5 3.5A35.8 35.8 0 0164 93a35.8 35.8 0 01-27.7-9.7l3.5-3.5A29.2 29.2 0 0064 93z" fill="#e2e8f0"/></svg><span class="text-sm text-slate-300">PyTorch</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#60a5fa" d="M12.18,10.23L14.09,12.14L12,14.23L9.91,12.14L11.82,10.23L12,10.05L12.18,10.23M12,8.1L6.7,2.8L1.4,8.1L2.8,9.5L8.1,4.2L12,8.1M12,15.9L8.1,12L2.8,17.3L1.4,15.9L6.7,10.6L12,15.9M22.6,8.1L17.3,2.8L12,8.1L15.9,12L21.2,6.7L22.6,8.1M12,15.9L17.3,21.2L22.6,15.9L21.2,14.5L15.9,19.8L12,15.9Z"/></svg><span class="text-sm text-slate-300">TensorFlow</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#60a5fa" d="M21.93,13.39a2.5,2.5,0,0,1-2.16,1.25H18.22a2.5,2.5,0,0,1-2.17-1.25,2.77,2.77,0,0,1,0-2.78,2.5,2.5,0,0,1,2.17-1.25h1.55a2.5,2.5,0,0,1,2.16,1.25,2.77,2.77,0,0,1,0,2.78M4.27,14.64h1.55a2.5,2.5,0,0,0,2.17-1.25,2.77,2.77,0,0,0,0-2.78A2.5,2.5,0,0,0,5.82,9.36H4.27a2.5,2.5,0,0,0-2.16,1.25,2.77,2.77,0,0,0,0,2.78A2.5,2.5,0,0,0,4.27,14.64m5.75,0h1.55a2.5,2.5,0,0,0,2.17-1.25,2.77,2.77,0,0,0,0-2.78A2.5,2.5,0,0,0,11.57,9.36H10a2.5,2.5,0,0,0-2.16,1.25,2.77,2.77,0,0,0,0,2.78A2.5,2.5,0,0,0,10,14.64M10,9.36a2.5,2.5,0,0,1,2.17-1.25h1.55a2.5,2.5,0,0,1,2.17,1.25,2.77,2.77,0,0,1,0,2.78,2.5,2.5,0,0,1-2.17,1.25H12.17a2.5,2.5,0,0,1-2.17-1.25,2.77,2.77,0,0,1,0-2.78M22.64,18.57a2.77,2.77,0,0,1-2.78,0,2.5,2.5,0,0,1-1.25-2.17V14.85a2.5,2.5,0,0,1,1.25-2.17,2.77,2.77,0,0,1,2.78,0,2.5,2.5,0,0,1,1.25,2.17v1.55A2.5,2.5,0,0,1,22.64,18.57Z"/></svg><span class="text-sm text-slate-300">Hugging Face</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.25,13.5,4.5,12,2.25,10.5,0,12ZM12,24l2.25-1.5L12,21l-2.25,1.5ZM12,3,9.75,1.5,12,0,14.25,1.5ZM21.75,13.5,24,12,21.75,10.5,19.5,12ZM12,8.25a3.75,3.75,0,1,0,0,7.5,3.75,3.75,0,0,0,0-7.5ZM7.5,12a4.5,4.5,0,1,1,9,0,4.5,4.5,0,0,1-9,0Z" fill="#60a5fa"/></svg><span class="text-sm text-slate-300">LangChain</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" fill="#e2e8f0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.001c0 6.628-5.373 12-12 12s-12-5.372-12-12c0-6.627 5.373-12 12-12s12 5.373 12 12.001zm-17.955-4.498l-1.603 1.352c.222.334.481.649.769.943l1.328-1.593c-.179-.243-.36-.486-.494-.702zm2.122-1.28l-1.328 1.594c.494.417.98.854 1.455 1.311l1.593-1.328c-.52-.494-.98-.943-1.72-1.577zm11.594 6.002c-.135.807-.494 1.577-.943 2.24l1.328 1.593c.63-.769 1.125-1.652 1.413-2.593h-1.798zm-1.761 3.238c-.494.375-.98.729-1.539 1.023l.729 1.761c.668-.334 1.292-.769 1.838-1.28l-1.028-1.504zm-8.029 1.023c-.56-.294-1.045-.648-1.54-1.023l-1.027 1.504c.546.511 1.17 1.023 1.838 1.28l.729-1.761zm-3.238-1.761c-.45-.662-.807-1.433-.943-2.24h-1.798c.288.94.783 1.824 1.413 2.593l1.328-1.593zm1.028-11.556l-.73 1.76c.56.295 1.045.649 1.54 1.024l1.027-1.504c-.547-.511-1.17-.985-1.837-1.28zm8.029 1.023l.729-1.76c.668.295 1.292.769 1.838 1.28l-1.028 1.504c-.494-.375-.98-.729-1.539-1.024z"/></svg><span class="text-sm text-slate-300">Flask</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" fill="#60a5fa" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.012 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75-4.365-9.75-9.75-9.75zm0 17.625c-4.344 0-7.875-3.531-7.875-7.875s3.531-7.875 7.875-7.875 7.875 3.531 7.875 7.875-3.531 7.875-7.875 7.875zm-1.64-12.375h3.281c.906 0 1.641.734 1.641 1.641v6.562c0 .906-.735 1.641-1.64 1.641h-3.281c-.907 0-1.641-.735-1.641-1.64V9.14c0-.907.734-1.64 1.64-1.64zm.328 1.641v6.562h2.625V9.141h-2.625z"/></svg><span class="text-sm text-slate-300">Django</span></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-4">Tools & Platforms</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.45,9.73a2.08,2.08,0,0,0-1.5-1.5l-3.33-.48L16.2.8a2.08,2.08,0,0,0-3.72,0L11.06,4.75l-3.33.48a2.08,2.08,0,0,0-1.5,1.5L5.75,8.06,3.42,10.4a2.08,2.08,0,0,0,0,2.94l2.33,2.33L5.75,18a2.08,2.08,0,0,0,1.5,1.5l3.33.48L12,23.2a2.08,2.08,0,0,0,3.72,0l1.42-3.95,3.33-.48a2.08,2.08,0,0,0,1.5-1.5L22.25,14,24.58,11.6a2.08,2.08,0,0,0,0-2.94Z" fill="#e2e8f0"/><path d="M10.5,15.5l-4-4,1.41-1.41,2.59,2.58,5.59-5.58,1.41,1.41Z" fill="#60a5fa"/></svg><span class="text-sm text-slate-300">Scikit-Learn</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#60a5fa" d="M21.6,8.83,12.37.28a1.24,1.24,0,0,0-1.74,0L1.4,8.83a1.24,1.24,0,0,0,0,1.74l9.23,8.55a1.24,1.24,0,0,0,1.74,0l9.23-8.55a1.24,1.24,0,0,0,0-1.74Zm-1.74,0L12,16.2,4.14,8.83,12,1.45Z"/><path fill="#e2e8f0" d="M12,13.38,7,8.83l5-4.63,5,4.63Z"/></svg><span class="text-sm text-slate-300">Plotly</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" fill="#e2e8f0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 11.475V22.5a9.525 9.525 0 0 0 9.525-9.525H12zM1.5 11.475h9.525V1.95A9.525 9.525 0 0 0 1.5 11.475z"/></svg><span class="text-sm text-slate-300">Pandas</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" fill="#60a5fa" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.5c-5.115 0-9.345 3.825-9.705 8.82L12 22.5l9.705-12.18C21.36 5.325 17.115 1.5 12 1.5z"/></svg><span class="text-sm text-slate-300">NumPy</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" fill="#e2e8f0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 22.5c-5.805 0-10.5-4.695-10.5-10.5S6.195 1.5 12 1.5s10.5 4.695 10.5 10.5S17.805 22.5 12 22.5zM12 6a.75.75 0 0 0-.75.75v4.5H6.75a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5V6.75A.75.75 0 0 0 12 6z"/></svg><span class="text-sm text-slate-300">Matplotlib</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" fill="#60a5fa" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM9.563 18.938c-1.012 0-1.95-.3-2.738-.825l.938-1.5c.563.338 1.163.525 1.8.525.863 0 1.425-.338 1.425-.938v-5.25h1.688v5.25c0 1.763-1.088 2.738-3.113 2.738zm4.35-7.313c0-.825-.6-1.425-1.425-1.425s-1.425.6-1.425 1.425.6 1.425 1.425 1.425 1.425-.6 1.425-1.425zm-2.137 7.313h1.687V9.825h-1.687v9.125z"/></svg><span class="text-sm text-slate-300">Seaborn</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#60a5fa" d="M22,13.79V10.21a1.5,1.5,0,0,0-.75-1.3l-8.5-4.91a1.5,1.5,0,0,0-1.5,0L2.75,8.91A1.5,1.5,0,0,0,2,10.21v3.58a1.5,1.5,0,0,0,.75,1.3l8.5,4.91a1.5,1.5,0,0,0,1.5,0l8.5-4.91A1.5,1.5,0,0,0,22,13.79Zm-1.5-2.6L12,16.1,3.5,11.19,12,6.28Z"/></svg><span class="text-sm text-slate-300">AWS</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" fill="#e2e8f0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.4 18.6h19.2c1.32 0 2.4-1.08 2.4-2.4V7.8c0-1.32-1.08-2.4-2.4-2.4H2.4C1.08 5.4 0 6.48 0 7.8v8.4c0 1.32 1.08 2.4 2.4 2.4zM1.2 7.8c0-.66.54-1.2 1.2-1.2h19.2c.66 0 1.2.54 1.2 1.2v2.1H1.2V7.8zm21.6 8.4c0 .66-.54 1.2-1.2 1.2H2.4c-.66 0-1.2-.54-1.2-1.2v-4.5h21.6v4.5z"/><path d="M10.2 15h3.6v1.2h-3.6z"/></svg><span class="text-sm text-slate-300">Azure</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.93,13.43a2.5,2.5,0,0,0,0-2.86,2.44,2.44,0,0,0-1.25-1.25,2.5,2.5,0,0,0-2.86,0,2.44,2.44,0,0,0-1.25,1.25,2.5,2.5,0,0,0,0,2.86,2.44,2.44,0,0,0,1.25,1.25,2.5,2.5,0,0,0,2.86,0,2.44,2.44,0,0,0,1.25-1.25M6.38,16.5a2.5,2.5,0,0,0,0-2.86,2.44,2.44,0,0,0-1.25-1.25,2.5,2.5,0,0,0-2.86,0A2.44,2.44,0,0,0,1,13.64a2.5,2.5,0,0,0,0,2.86,2.44,2.44,0,0,0,1.25,1.25,2.5,2.5,0,0,0,2.86,0A2.44,2.44,0,0,0,6.38,16.5m-4.11-8a2.5,2.5,0,0,0,0-2.86A2.44,2.44,0,0,0,1,4.39a2.5,2.5,0,0,0-2.86,0A2.44,2.44,0,0,0-3.12,5.64a2.5,2.5,0,0,0,0,2.86A2.44,2.44,0,0,0-1.88,9.75a2.5,2.5,0,0,0,2.86,0A2.44,2.44,0,0,0,2.27,8.5m15.35,0a2.5,2.5,0,0,0,0-2.86,2.44,2.44,0,0,0-1.25-1.25,2.5,2.5,0,0,0-2.86,0,2.44,2.44,0,0,0-1.25,1.25,2.5,2.5,0,0,0,0,2.86,2.44,2.44,0,0,0,1.25,1.25,2.5,2.5,0,0,0,2.86,0,2.44,2.44,0,0,0,1.25-1.25M8.65,9.75a2.5,2.5,0,0,0,2.86,0,2.44,2.44,0,0,0,1.25-1.25,2.5,2.5,0,0,0,0-2.86,2.44,2.44,0,0,0-1.25-1.25,2.5,2.5,0,0,0-2.86,0A2.44,2.44,0,0,0,7.4,5.64a2.5,2.5,0,0,0,0,2.86A2.44,2.44,0,0,0,8.65,9.75Z" transform="translate(4.12 6.25)" fill="#e2e8f0" /><path d="M23.12,10.63H20.34a.5.5,0,0,1-.5-.5V7.34a.5.5,0,0,1,.5-.5h2.78a.5.5,0,0,1,.5.5v2.79A.5.5,0,0,1,23.12,10.63Zm-4.3,0H16a.5.5,0,0,1-.5-.5V7.34a.5.5,0,0,1,.5-.5h2.78a.5.5,0,0,1,.5.5v2.79A.5.5,0,0,1,18.82,10.63Zm-4.29,0H11.75a.5.5,0,0,1-.5-.5V7.34a.5.5,0,0,1,.5-.5h2.78a.5.5,0,0,1,.5.5v2.79A.5.5,0,0,1,14.53,10.63Zm-4.3,0H7.45a.5.5,0,0,1-.5-.5V7.34a.5.5,0,0,1,.5-.5h2.78a.5.5,0,0,1,.5.5v2.79A.5.5,0,0,1,10.23,10.63Zm-4.3,0H3.15a.5.5,0,0,1-.5-.5V7.34a.5.5,0,0,1,.5-.5H5.93a.5.5,0,0,1,.5.5v2.79A.5.5,0,0,1,5.93,10.63Z" transform="translate(4.12 6.25)" fill="#60a5fa" /></svg><span class="text-sm text-slate-300">Docker</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.00,22.00a10.00,10.00,0,1,1,10.00-10.00,10.00,10.00,0,0,1-10.00,10.00Zm0.00-18.00a8.00,8.00,0,1,0,8.00,8.00,8.00,8.00,0,0,0-8.00-8.00Z" fill="#60a5fa"/><path d="M12.00,20.50a8.50,8.50,0,1,1,8.50-8.50,8.50,8.50,0,0,1-8.50,8.50Zm0.00-15.00a6.50,6.50,0,1,0,6.50,6.50,6.51,6.51,0,0,0-6.50-6.50Z" fill="#e2e8f0"/><path d="M12.00,12.00a2.00,2.00,0,1,1,2.00-2.00,2.00,2.00,0,0,1-2.00,2.00Z" fill="#60a5fa"/></svg><span class="text-sm text-slate-300">Vertex AI</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" fill="#e2e8f0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.513 8.232c-.08-.246-.203-.48-.363-.696l-7.22-9.626c-.36-.48-.96-.708-1.56-.54l-9.627 2.628c-.6.168-.96.78-.888 1.38l2.628 9.626c.168.6.78.96 1.38.888l9.626-2.628c.048-.012.096-.024.144-.048l3.492-3.492c.3.264.636.48.996.636l2.628 9.626c.168.6.78.96 1.38.888l2.628-9.626c.168-.6-.192-1.2-.78-1.38zM12 13.5c-2.484 0-4.5-2.016-4.5-4.5s2.016-4.5 4.5-4.5 4.5 2.016 4.5 4.5-2.016 4.5-4.5 4.5z"/></svg><span class="text-sm text-slate-300">OpenCV</span></div>
+                            <div class="skill-logo-container rounded-lg p-4 flex flex-col items-center justify-center gap-2"><svg class="w-10 h-10" fill="#60a5fa" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg><span class="text-sm text-slate-300">FAISS</span></div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Skills Section -->
-            <section id="skills" class="section">
-                <h2 class="text-2xl font-bold text-emerald-400 mb-8">./Skills</h2>
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="font-medium text-white mb-3">Languages</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Python</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">R</span>
-                        </div>
+            <!-- Achievements Section -->
+            <section id="achievements" class="section pt-20 -mt-20">
+                <h2 class="text-2xl font-bold text-blue-400 mb-8">./Achievements</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="glass-card p-6 rounded-lg flex items-start gap-4">
+                        <div class="text-blue-400 mt-1 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                        <div><h3 class="font-bold text-white">Grand Finalist, TechGig Code Gladiators 2023</h3><p class="text-slate-400 text-sm">Top 12 in the Machine Learning Hackathon.</p></div>
                     </div>
-                    <div>
-                        <h3 class="font-medium text-white mb-3">Frameworks</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Flask</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Django</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Tensorflow</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">PyTorch</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Hugging Face Transformers</span>
-                        </div>
+                    <div class="glass-card p-6 rounded-lg flex items-start gap-4">
+                        <div class="text-blue-400 mt-1 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+                        <div><h3 class="font-bold text-white">Excellence in Academics Award</h3><p class="text-slate-400 text-sm">Awarded by the Dean of Manipal University Jaipur for 3 consecutive semesters.</p></div>
                     </div>
-                    <div>
-                        <h3 class="font-medium text-white mb-3">Tools</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">NumPy</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Pandas</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Matplotlib</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Seaborn</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Plotly</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Scikit-Learn</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">MLflow</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">OpenCV</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">FAISS</span>
-                        </div>
+                    <div class="glass-card p-6 rounded-lg flex items-start gap-4">
+                        <div class="text-blue-400 mt-1 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8c-2.21 0-4 1.79-4 4s1.79 4 4 4h4"></path><path d="M12 12h4c2.21 0 4 1.79 4 4s-1.79 4-4 4h-4"></path><line x1="16" y1="8" x2="8" y2="16"></line></svg></div>
+                        <div><h3 class="font-bold text-white">Runner Up, DeFi - Hacks Elicit 23</h3><p class="text-slate-400 text-sm">Recognized in a competitive hackathon by the MUJ ACM-Student chapter.</p></div>
                     </div>
-                    <div>
-                        <h3 class="font-medium text-white mb-3">Platforms</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Azure</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">AWS</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Docker</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Hugging Face</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">LangChain</span>
-                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Vertex AI</span>
-                        </div>
+                    <div class="glass-card p-6 rounded-lg flex items-start gap-4">
+                        <div class="text-blue-400 mt-1 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.82 13.44l-2.96 3.03-2.88-3.03-4.98 5.11 7.86 7.45 7.82-7.45-4.86-5.11zM10.88.1L6.1 4.98l4.78 4.86 4.94-4.86L10.88.1z"/></svg></div>
+                        <div><h3 class="font-bold text-white">Kaggle Expert Status</h3><p class="text-slate-400 text-sm">Ranked 83rd in the KaggleX BIPOC 2024 Competition.</p></div>
                     </div>
+                </div>
+            </section>
+
+            <!-- Positions of Responsibility Section -->
+            <section id="responsibility" class="section pt-20 -mt-20">
+                <h2 class="text-2xl font-bold text-blue-400 mb-8">./Responsibility</h2>
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="font-bold text-white text-lg">Placement Co-ordinator</h3>
+                    <p class="text-sm text-slate-300 mb-4">Indian Institute of Technology Jodhpur</p>
+                    <ul class="list-disc list-inside text-slate-400 space-y-2 text-sm">
+                        <li>Acted as the primary liaison between recruiters and students, successfully onboarding new companies to enhance placement opportunities.</li>
+                        <li>Organized and managed the end-to-end campus recruitment process, including scheduling interviews and coordinating company sessions.</li>
+                        <li>Mentored students on effective resume building, interview preparation strategies, and professional communication skills.</li>
+                    </ul>
                 </div>
             </section>
 
@@ -285,8 +289,8 @@
                 nameIndex++;
                 setTimeout(typeName, 100);
             } else {
-                nameEl.innerHTML = nameText; // Remove cursor after finishing
-                setTimeout(typeTitle, 500); // Start typing title after a delay
+                nameEl.innerHTML = nameText;
+                setTimeout(typeTitle, 500);
             }
         }
 
@@ -296,33 +300,124 @@
                 titleIndex++;
                 setTimeout(typeTitle, 75);
             } else {
-                titleEl.innerHTML = titleText; // Remove cursor
+                titleEl.innerHTML = titleText;
             }
         }
         
-        // Start the typing animation on load
         document.addEventListener('DOMContentLoaded', () => {
              setTimeout(typeName, 500);
         });
 
-
-        // --- Scroll Animation ---
-        const sections = document.querySelectorAll('.section');
-
-        const observer = new IntersectionObserver(entries => {
+        // --- Scroll Reveal Animation ---
+        const revealSections = document.querySelectorAll('.section');
+        const revealObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
+        }, { threshold: 0.1 });
+        revealSections.forEach(section => revealObserver.observe(section));
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinksMobile = mobileMenu.querySelectorAll('a');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        navLinksMobile.forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
 
-        sections.forEach(section => {
-            observer.observe(section);
+
+        // --- Active Nav Link on Scroll ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navHeight = document.getElementById('navbar').offsetHeight;
+
+        function updateActiveLink() {
+            let index = sections.length;
+            while(--index && window.scrollY + navHeight < sections[index].offsetTop) {}
+            navLinks.forEach((link) => link.classList.remove('active'));
+            const activeLink = document.querySelector(`.nav-link[href="#${sections[index].id}"]`);
+            if(activeLink) {
+                 activeLink.classList.add('active');
+            }
+        }
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+
+        // --- Plexus Background Animation ---
+        const canvas = document.getElementById('plexus-bg');
+        const ctx = canvas.getContext('2d');
+        let points = [];
+        const pointCount = 60;
+        const connectDistance = 100;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function initPoints() {
+            points = [];
+            for (let i = 0; i < pointCount; i++) {
+                points.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: Math.random() * 0.4 - 0.2,
+                    vy: Math.random() * 0.4 - 0.2,
+                    radius: Math.random() * 1.5 + 1
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            points.forEach(point => {
+                point.x += point.vx;
+                point.y += point.vy;
+
+                if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
+                if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(96, 165, 250, 0.5)'; // Blue points
+                ctx.fill();
+            });
+
+            for (let i = 0; i < points.length; i++) {
+                for (let j = i + 1; j < points.length; j++) {
+                    const dx = points[i].x - points[j].x;
+                    const dy = points[i].y - points[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(points[i].x, points[i].y);
+                        ctx.lineTo(points[j].x, points[j].y);
+                        ctx.strokeStyle = `rgba(96, 165, 250, ${1 - distance / connectDistance})`; // Blue lines
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initPoints();
         });
+
+        resizeCanvas();
+        initPoints();
+        animate();
     </script>
 
 </body>
