@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varun Raskar | AI & Data Science</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the techy look and feel */
+        body {
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .terminal-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2rem;
+            background-color: #34d399;
+            margin-left: 8px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .glass-card {
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border: 1px solid rgba(52, 211, 153, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -15px rgba(52, 211, 153, 0.2);
+        }
+        .tag {
+            background-color: #34d399;
+            color: #0a0a0a;
+            font-weight: 500;
+        }
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #171717;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #34d399;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6ee7b7;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center p-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 id="name-text" class="text-4xl md:text-6xl font-bold text-white mb-2 font-mono"></h1>
+            <p id="title-text" class="text-lg md:text-2xl text-emerald-400 font-mono mb-8"></p>
+            <p class="max-w-2xl mx-auto text-slate-300 mb-8">
+                Innovative and results-driven Data Scientist with expertise in AI, Machine Learning, and Deep Learning. Proven track record of developing impactful AI solutions.
+            </p>
+            <div class="flex justify-center items-center space-x-6 text-slate-400">
+                <a href="mailto:varunraskar22@gmail.com" class="hover:text-emerald-400 transition-colors" title="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/varun-raskar/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="https://github.com/varunraskar" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://www.kaggle.com/varunraskar" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="Kaggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.82 13.44l-2.96 3.03-2.88-3.03-4.98 5.11 7.86 7.45 7.82-7.45-4.86-5.11zM10.88.1L6.1 4.98l4.78 4.86 4.94-4.86L10.88.1z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 animate-bounce">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </header>
+
+    <main class="px-4 md:px-8 py-16 md:py-24">
+        <div class="max-w-4xl mx-auto space-y-24">
+
+            <!-- Experience Section -->
+            <section id="experience" class="section">
+                <h2 class="text-2xl font-bold text-emerald-400 mb-8">./Experience</h2>
+                <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+                    <!-- Amazon -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 group-odd:order-1 group-odd:ml-auto group-even:mr-auto shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-lg">
+                            <div class="flex items-baseline justify-between">
+                                <h3 class="font-bold text-white">Amazon ML Summer School</h3>
+                                <p class="text-sm text-slate-400">Sept - Oct 2023</p>
+                            </div>
+                            <p class="text-sm font-medium text-slate-300 mb-2">Mentee</p>
+                            <ul class="list-disc list-inside text-slate-400 space-y-1 text-sm">
+                                <li>Selected as one of 3000 participants from over 20,000 applicants.</li>
+                                <li>Gained expertise in Deep Neural Networks, Reinforcement Learning, and Transformers.</li>
+                                <li>Applied advanced ML concepts to practical projects.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Celebal Technologies -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 group-odd:order-1 group-odd:ml-auto group-even:mr-auto shrink-0">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-lg">
+                            <div class="flex items-baseline justify-between">
+                                <h3 class="font-bold text-white">Celebal Technologies</h3>
+                                <p class="text-sm text-slate-400">May - July 2023</p>
+                            </div>
+                            <p class="text-sm font-medium text-slate-300 mb-2">Data Science Intern</p>
+                            <ul class="list-disc list-inside text-slate-400 space-y-1 text-sm">
+                                <li>Developed a ML system for Air Pressure Failure Detection.</li>
+                                <li>Addressed imbalanced data with SMOTE and optimized with feature engineering.</li>
+                                <li>Awarded a Pre-Placement Offer (PPO) for outstanding performance.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <h2 class="text-2xl font-bold text-emerald-400 mb-8">./Projects</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Project 1 -->
+                    <div class="glass-card p-6 rounded-lg flex flex-col">
+                        <h3 class="font-bold text-white text-lg mb-2">Hierarchical LEGO Classification with EfficientNet</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">Developed a novel framework for hierarchical classification of LEGO parts using deep learning and a structured taxonomy, achieving high accuracy (96.1%) and path similarity (~0.97).</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag text-xs px-2 py-1 rounded-full">EfficientNet</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Graph-based DAG</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Hierarchical Attention</span>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="glass-card p-6 rounded-lg flex flex-col">
+                        <h3 class="font-bold text-white text-lg mb-2">Conditional SketchRNN: Class-Conditioned Stroke Generation</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">Enhanced SketchRNN with class conditioning to generate structured sketches for 10 QuickDraw classes, using an attention-based LSTM and a custom weighted loss.</p>
+                         <div class="flex flex-wrap gap-2">
+                            <span class="tag text-xs px-2 py-1 rounded-full">SketchRNN</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">LSTM</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Attention Mechanism</span>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="glass-card p-6 rounded-lg flex flex-col">
+                        <h3 class="font-bold text-white text-lg mb-2">LangChain Multi-Tool Agent for Information Retrieval</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">Developed an intelligent LangChain AI agent that selects and uses tools like Wikipedia and Arxiv for complex information retrieval, leveraging Google Gemini and FAISS.</p>
+                         <div class="flex flex-wrap gap-2">
+                            <span class="tag text-xs px-2 py-1 rounded-full">LangChain</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Google Gemini</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">FAISS</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="section">
+                <h2 class="text-2xl font-bold text-emerald-400 mb-8">./Education</h2>
+                <div class="space-y-6">
+                     <div class="glass-card p-6 rounded-lg">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-white">Indian Institute of Technology Jodhpur</h3>
+                                <p class="text-slate-300">Master of Technology in Artificial Intelligence</p>
+                                <p class="text-sm text-slate-400">CGPA: 8.30</p>
+                            </div>
+                            <p class="text-sm text-slate-400 text-right shrink-0 ml-4">July 2024 - May 2026</p>
+                        </div>
+                    </div>
+                     <div class="glass-card p-6 rounded-lg">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-white">Manipal University Jaipur</h3>
+                                <p class="text-slate-300">Bachelor of Technology in Data Science and Engineering</p>
+                                <p class="text-sm text-slate-400">CGPA: 8.83</p>
+                            </div>
+                            <p class="text-sm text-slate-400 text-right shrink-0 ml-4">Nov 2020 - May 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <h2 class="text-2xl font-bold text-emerald-400 mb-8">./Skills</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-medium text-white mb-3">Languages</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Python</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">R</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-white mb-3">Frameworks</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Flask</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Django</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Tensorflow</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">PyTorch</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Hugging Face Transformers</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-white mb-3">Tools</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">NumPy</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Pandas</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Matplotlib</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Seaborn</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Plotly</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Scikit-Learn</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">MLflow</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">OpenCV</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">FAISS</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-white mb-3">Platforms</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Azure</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">AWS</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Docker</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Hugging Face</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">LangChain</span>
+                            <span class="bg-slate-800 border border-slate-700 text-slate-300 text-sm px-3 py-1 rounded-md">Vertex AI</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-8 px-4">
+        <p class="text-slate-500 text-sm">Designed & Built by Varun Raskar</p>
+        <p class="text-slate-600 text-xs mt-1">Powered by creativity and coffee</p>
+    </footer>
+
+    <script>
+        // --- Terminal Typing Effect ---
+        const nameText = "Varun Raskar";
+        const titleText = "AI & Machine Learning Engineer";
+        const nameEl = document.getElementById('name-text');
+        const titleEl = document.getElementById('title-text');
+        let nameIndex = 0;
+        let titleIndex = 0;
+
+        function typeName() {
+            if (nameIndex < nameText.length) {
+                nameEl.innerHTML = nameText.substring(0, nameIndex + 1) + '<span class="terminal-cursor"></span>';
+                nameIndex++;
+                setTimeout(typeName, 100);
+            } else {
+                nameEl.innerHTML = nameText; // Remove cursor after finishing
+                setTimeout(typeTitle, 500); // Start typing title after a delay
+            }
+        }
+
+        function typeTitle() {
+            if (titleIndex < titleText.length) {
+                titleEl.innerHTML = titleText.substring(0, titleIndex + 1) + '<span class="terminal-cursor"></span>';
+                titleIndex++;
+                setTimeout(typeTitle, 75);
+            } else {
+                titleEl.innerHTML = titleText; // Remove cursor
+            }
+        }
+        
+        // Start the typing animation on load
+        document.addEventListener('DOMContentLoaded', () => {
+             setTimeout(typeName, 500);
+        });
+
+
+        // --- Scroll Animation ---
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
